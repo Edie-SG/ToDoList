@@ -1,0 +1,154 @@
+<section class="calendar">
+    <header>
+        <h2>
+            <a #prev id="prev" href="" aria-label = "previous year"></a>
+        </h2>
+        <h1 #calTitle id="calTitle"></h1>
+        <h2>
+            <a #next id="next" href="" aria-label = "next year"></a>
+        </h2>
+    </header>
+    
+    <div #cal id="cal">
+        <table class = "all">
+            <tbody>
+                <tr>
+                    <td class = "week">
+                      <div class="day mo"></div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                      <div class="day">Tu</div>
+                      <div class="day">We</div>
+                      <div class="day">Th</div>
+                      <div class="day">Fr</div>
+                      <div class="day">Sa</div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                      <div class="day">Tu</div>
+                      <div class="day">We</div>
+                      <div class="day">Th</div>
+                      <div class="day">Fr</div>
+                      <div class="day">Sa</div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                      <div class="day">Tu</div>
+                      <div class="day">We</div>
+                      <div class="day">Th</div>
+                      <div class="day">Fr</div>
+                      <div class="day">Sa</div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                      <div class="day">Tu</div>
+                      <div class="day">We</div>
+                      <div class="day">Th</div>
+                      <div class="day">Fr</div>
+                      <div class="day">Sa</div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                      <div class="day">Tu</div>
+                      <div class="day">We</div>
+                      <div class="day">Th</div>
+                      <div class="day">Fr</div>
+                      <div class="day">Sa</div>
+                      <div class="day sun">Su</div>
+                      <div class="day">Mo</div>
+                    </td>
+                    <td>
+                      <table id="months">
+                        <tbody>
+                            <tr #mTopRow id="mtoprow">
+                                <td class="mc" valign="top"><span id="p0"></span></td>
+                                <td class="mc" valign="top"><span id="p1"></span></td>
+                                <td class="mc" valign="top"><span id="p2"></span></td>
+                                <td class="mc" valign="top"><span id="p3"></span></td>
+                                <td class="mc" valign="top"><span id="p4"></span></td>
+                                <td class="mc" valign="top"><span id="p5"></span></td>
+                                <td class="mc" valign="top"><span id="p6"></span></td>
+                                <td class="mc" valign="top"><span id="p7"></span></td>
+                                <td class="mc" valign="top"><span id="p8"></span></td>
+                                <td class="mc" valign="top"><span id="p9"></span></td>
+                                <td class="mc" valign="top"><span id="p10"></span></td>
+                                <td class="mc" valign="top"><span id="p11"></span></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="tmp">
+        <span #m0m id="m0">
+            <div class="months">
+                <div class="mo">Month</div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+                <div class="dt"></div>
+            </div>
+        </span>
+    </div>
+
+    <div #sidePanelLeft class = "sidePanel" id = "sidePanelLeft">
+        <h2>Finished activities</h2>    
+        <div class = "dateContentFinished">
+            <ul></ul>
+        </div>
+        <div class = "obtainedSanity">
+            <h3>Obtained sanity</h3>
+            <h3 class = "number"></h3>
+        </div>
+        <h2>Still in plan</h2>
+        <div class = "dateContentPlan">
+            <ul></ul>
+        </div>
+    </div>
+    <div #sidePanelRight class = "sidePanel" id = "sidePanelRight">
+        <!-- <h2>Finished activities</h2>    
+        <div class = "dateContentFinished">
+            <ul>
+                <li *ngFor = "let task of contentList">{{task}}</li>
+            </ul>
+        </div>
+        <div class = "obtainedSanity">
+            <h3>Obtained sanity</h3>
+            <h3 class = "number"></h3>
+        </div>
+        <h2>Still in plan</h2>
+        <div class = "dateContentPlan"></div> -->
+    </div>
+</section>

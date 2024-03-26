@@ -1,0 +1,279 @@
+@media (min-width: 768px) {
+    :host {
+        position: absolute;
+        inset: 0;
+    }
+
+    section.calendar {
+        position: absolute;
+        inset: 0;
+    }
+
+    #cal {
+        position: absolute;
+        inset: 0.5rem 0 0.5rem 0.5rem;
+        padding-right: 1rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        font-size: 0.9rem;
+        z-index: 1;
+        scrollbar-width: thin;
+        scrollbar-color: var(--borderColor2) transparent;
+
+        & table.all {
+            width: 100%;
+            border-collapse: collapse;
+
+            .week {
+                padding-right: 1rem;
+
+                & div {
+                    width: 100%;
+                }
+            }
+
+            >tbody >tr {
+                display: grid;
+                grid-template-columns: 8% 92%;
+                
+                >td:last-child {
+                    position: relative;
+                }
+            }
+
+            #months {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                table-layout: fixed;
+                border-collapse: collapse;
+
+                & td.mc:hover {
+                    background-color: var(--backColor7);
+                    z-index: -1;
+                }
+
+                & td.mc:hover .mo {
+                    background-color: var(--backColor7);
+                    box-shadow: 0 -1px 0 1px var(--backColor7);
+                }
+            }
+        }
+    }
+    
+    #tmp {
+        display: none;
+    }
+    
+    .dt, .day, .mo {
+        box-sizing: border-box;
+        text-align: right;
+        height: 1.6rem;
+        line-height: 1.8;
+        padding-right: 0.8rem;
+    }
+
+    .day, .mo {
+        font-weight: 600;
+    }
+
+    .mo {
+        height: 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .week .mo::after {
+        content: "";
+        position: absolute;
+        inset: -1px auto 0 -2px;
+        width: calc(60dvw - 7px - 0.5rem);
+        max-width: calc(1400px - 7px - 0.5rem);
+        background: #e3d3bb url("../../assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .week .mo::before {
+        content: "";
+        position: absolute;
+        inset: -1px auto 0 -2px;
+        width: calc(60dvw - 7px - 0.5rem);
+        background: url("../../assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
+        opacity: 0.7;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 1;
+    }
+
+    .day.sun::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: calc(60dvw);
+        background-color: var(--borderColor2);
+    }
+
+    .dt {
+        border-radius: 0.3rem;
+    }
+
+    .dt:hover, .dt.active {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .dt:hover::after {
+        content: "";
+        position: absolute;
+        width: 120dvw;
+        height: 100%;
+        left: -60dvw;
+        background-color: var(--backColor7);
+        z-index: -1;
+    }
+
+    .dt.active {
+        background-color: var(--backColor3);
+    }
+
+    .dt:active {
+        background-color: var(--backColor6);
+    }
+
+    #today {
+        background-color: var(--frontColor4);
+        border-radius: 0.3rem;
+    }
+
+    #today:hover {
+        box-shadow: 0 0 5px var(--frontColor3);
+    }
+
+    #today:active {
+        background-color: var(--frontColor3);
+        box-shadow: 2px 2px 5px var(--frontColor3);
+    }
+
+    header {
+        position: absolute;
+        top: -2.5rem;
+        color: var(--frontColor2);
+        display: flex;
+        align-items: end;
+        
+        & h1 {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 0 0.5rem;
+            line-height: 1;
+            padding: 0.2rem 0.5rem;
+        }
+
+        & h2 {
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: 300;
+
+            & a {
+                text-decoration: none;
+                color: var(--frontColor2);
+                padding: 0.2rem 0.5rem;
+                border-radius: 0.2rem;
+            }
+
+            & a:hover {
+                background-color: var(--backColor4);
+            }
+
+            & a:active {
+                background-color: var(--backColor5);
+            }
+        }
+
+    }
+
+    .sidePanel {
+        position: absolute;
+        z-index: -1;
+        transition: 0.5s ease;
+        box-shadow: 0 0 10px var(--borderColor4);
+        display: grid;
+        grid-template-rows: min-content auto min-content min-content auto;
+
+        & h2, h3 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0;
+            padding-left: 0.5rem;
+            padding-top: 0.3rem;
+        }
+
+        .dateContentFinished, .dateContentPlan {
+            width: 100%;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--borderColor2) transparent;
+        }
+
+        & ul {
+            margin-block: 0.2rem;
+            padding-left: 1.5rem;
+        }
+
+        .obtainedSanity {
+            display: flex;
+        }
+
+    }
+
+    .sidePanel::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("../../assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .sidePanel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: transparent;
+        z-index: -2;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    #sidePanelRight {
+        inset: 10% -30% 10% 100%;
+        border-radius: 0 0.5rem 0.5rem 0;
+        transform: translateX(-120%);
+    }
+
+    #sidePanelRight::after, #sidePanelRight::before {
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    #sidePanelRight.active {
+        transform: translateX(0);
+    }
+
+    #sidePanelLeft {
+        inset: 10% 100% 10% -30%;
+        border-radius: 0.5rem 0 0 0.5rem;
+        transform: translateX(120%);
+    }
+
+    #sidePanelLeft::after, #sidePanelLeft::before {
+        border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    #sidePanelLeft.active {
+        transform: translateX(0);
+    }
+}

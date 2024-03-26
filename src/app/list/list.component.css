@@ -1,0 +1,318 @@
+@keyframes text-shadow {
+    0% {text-shadow: 0 0 0 var(--frontColor5);}
+    100% {text-shadow: 0 0 5px var(--frontColor5);}
+}
+
+@media (min-width: 768px) {
+    ul {
+        display: block;
+        width: 100%;
+        height: 82%;
+        box-sizing: border-box;
+        overflow-y: auto;
+        list-style: none;
+        padding-left: 0;
+        scrollbar-width: thin;
+        scrollbar-color: var(--borderColor2) transparent;
+        overflow-x: hidden;
+
+        & li {
+            position: relative;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 7% 75% 13% 5%;
+            align-content: center;
+            justify-items: center;
+            align-items: center;
+    
+           & p {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                line-height: 3rem;
+                padding-inline: 1rem;
+                margin: 0;
+                box-sizing: border-box;
+                justify-content: space-between;
+            }
+
+            & button {
+                display: none;
+                height: 2.2rem;
+                width: 2.2rem;
+                background-color: transparent;
+                border: none;
+                padding: 0.5rem;
+                border-radius: 0.3rem;
+
+                & svg {
+                    stroke: var(--frontColor2);
+                    height: 100%;
+                    fill: none;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 5px;
+                    pointer-events: none;
+                }
+            }
+
+            & p:hover {
+                background-color: var(--backColor3);
+
+                & button {
+                    display: initial;
+                }
+
+                & button:hover {
+                    background-color: var(--backColor4);
+                }
+
+                & button:active {
+                    background-color: var(--backColor5);
+                }
+
+                & button:hover::after {
+                    content: attr(data-title);
+                    position: absolute;
+                    width: max-content;
+                    text-transform: none;
+                    font-size: 0.9rem;
+                    background-color: var(--backColor4);
+                    padding: 0.1rem 0.3rem;
+                    border-radius: 0.3rem;
+                    bottom: calc(100% + 0.5rem);
+                    right: 0.5rem;
+                }
+            }
+
+            & p:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px var(--frontColor4) inset;
+            }
+
+            #delete {
+                right: 0;
+                padding: 0.5rem;
+            }
+        }
+
+        & li:is(:hover, :focus) {
+            box-shadow: 0 0 5px var(--borderColor);
+
+            >button {
+                display: initial;
+            }
+
+            #delete:hover {
+                background-color: var(--backColor3);
+            }
+
+            #delete:active {
+                background-color: var(--backColor4);
+            }
+
+            #delete:hover::after {
+                content: attr(data-title);
+                position: absolute;
+                width: max-content;
+                text-transform: none;
+                font-size: 0.9rem;
+                background-color: var(--backColor4);
+                padding: 0.1rem 0.3rem;
+                border-radius: 0.3rem;
+                bottom: calc(100% + 0.5rem);
+                right: 0.5rem;
+            }
+        }
+    }
+    
+    label {
+        display: none;
+    }
+
+    #radio {
+        display: none;
+    }
+
+    .radioButton {
+        display: initial;
+        width: 2rem;
+        height: 2rem;
+
+        & svg.target {
+            stroke: var(--frontColor2);
+            height: 100%;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1px;
+            pointer-events: none;
+        }
+
+        & svg.hole {
+            display: none;
+        }
+    }
+
+    .radioButton:hover {
+        background-color: var(--frontColor4);
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+
+    .radioButton.active {
+        & svg.target {
+            display: none;
+        }
+
+        & svg.hole {
+            position: relative;
+            display: initial;
+            fill: var(--frontColor2);
+            height: 100%;
+            bottom: 0.1rem;
+            transform: scale(1.2);
+        }
+    }
+    
+    .bottom {
+        position: absolute;
+        bottom: 0.2rem;
+        width: 100%;
+        height: 2.5rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    
+        & input {
+            height: 2rem;
+            font-size: 1rem;
+        }
+    
+        #content {
+            width: 78%;
+        }
+        
+        #sanity {
+            width: 7%;
+            
+        }
+
+        & input {
+            font-family: "Titillium Web", sans-serif;
+            background-color: var(--backColor8);
+            border: 1px solid var(--borderColor);
+            border-radius: 0.3rem;
+            padding-left: 0.5rem;
+        }
+
+        & input:hover {
+            box-shadow: 0 0 3px var(--borderColor);
+        }
+
+        & input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--frontColor4) inset;
+        }
+        
+        #add {
+            height: 2rem;
+            width: 8%;
+        }
+    }
+    
+    .top {
+        position: absolute;
+        top: -3.5rem;
+        right: 0;
+        left: calc(82% - 1rem);
+        display: flex;
+        align-items: center;
+
+        .sanityIcon {
+            position: relative;
+            height: 2.5rem;
+            width: 2.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            bottom: 0.15rem;
+
+            & svg {
+                position: absolute;
+                height: 100%;
+                left: 0;
+                stroke: var(--frontColor2);
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 5px;
+            }
+
+            & p {
+                position: relative;
+                color: var(--frontColor2);
+                text-align: center;
+                margin: 0;
+                font-weight: 600;
+                left: 51%;
+            }
+
+            & p.overload {
+                animation: text-shadow 0.5s ease infinite alternate;
+            }
+
+            & p.overload::before {
+                position: absolute;
+                content: "OVERLOAD";
+                font-size: 0.6rem;
+                text-align: center;
+                width: max-content;
+                top: -0.8rem;
+                left: -1.8rem;
+            }
+        }
+
+        #random {
+            height: 3rem;
+            margin-left: 1.5rem;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+
+            & svg {
+                stroke: var(--frontColor2);
+                height: 100%;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 4px;
+                pointer-events: none;
+            }
+        }
+
+        #random:hover {
+            background-color: var(--backColor3);
+        }
+
+        #random:active {
+            background-color: var(--backColor5);
+        }
+
+        #random:hover::after {
+            content: attr(data-title);
+            position: absolute;
+            width: max-content;
+            text-transform: none;
+            font-size: 0.9rem;
+            background-color: var(--backColor8);
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            bottom: calc(100% + 0.5rem);
+            left: 4rem;
+        }
+    }
+}
