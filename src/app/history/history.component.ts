@@ -142,9 +142,9 @@ export class HistoryComponent implements AfterViewInit{
   
     this.calTitle.nativeElement.textContent = year;
     this.prev.nativeElement.innerHTML = year - 1;
-    this.prev.nativeElement.setAttribute("href", this.location.path() + "#" + (year - 1));
+    this.prev.nativeElement.setAttribute("href", window.location.pathname + "#" + (year - 1));
     this.next.nativeElement.innerHTML = year + 1;
-    this.next.nativeElement.setAttribute("href", this.location.path() + "#" + (year + 1));
+    this.next.nativeElement.setAttribute("href", window.location.pathname + "#" + (year + 1));
   
     for (var ix = startMonth - 1; ix < stopMonth; ix++) {
       var newId = "#p" + ix;
