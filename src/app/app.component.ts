@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Location } from "@angular/common"
 import { HeaderComponent } from './header/header.component';
 import { filter } from "rxjs/operators"
 
@@ -12,7 +13,7 @@ import { filter } from "rxjs/operators"
 })
 
 export class AppComponent implements OnInit {
-  constructor(private elementRef: ElementRef, private router: Router) {}
+  constructor(private elementRef: ElementRef, private router: Router, private location: Location) {}
 
   ngOnInit() {
     this.router.events.pipe(
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
   bodyHomeStyle() {
     const body = this.elementRef.nativeElement.parentElement;
   
-    if (window.location.pathname === "/home") {
+    if (this.location.path() === "/home") {
       body?.classList.add("home");
     } else {
       body?.classList.remove("home");
