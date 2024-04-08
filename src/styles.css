@@ -70,7 +70,6 @@ button {
         margin: 0;
         padding: 0;
         inset: 25% 20% 15% 20%;
-        background-color: var(--backColor2);
         border-radius: 0.5rem;
         max-width: 1400px;
         background: #e3d3bb url("assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
@@ -94,6 +93,24 @@ button {
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         box-shadow: 0 0 10px var(--borderColor4);
+    }
+
+    body.home {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        inset: 25% 20% 15% 20%;
+        border-radius: 0.5rem;
+        max-width: 1400px;
+        background: none;
+    }
+
+    body.home::before {
+        display: none;
+    }
+
+    body.home::after {
+        display: none;
     }
 
     app-root {

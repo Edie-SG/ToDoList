@@ -1,4 +1,19 @@
 @media (min-width: 768px) {
+    .logo {
+        position: fixed;
+        left: 0.2rem;
+        top: 0.5rem;
+        width: 6rem;
+        & svg {
+            height: 100%;
+            stroke: var(--frontColor2);
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1px;
+        }
+    }
+
     header {
         position: fixed;
         width: 30%;

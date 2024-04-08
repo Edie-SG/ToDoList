@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, afterNextRender, Inject } from '@angular/core';
-import { Location, DOCUMENT, CommonModule } from '@angular/common';
+import { DOCUMENT, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-history',
@@ -24,7 +24,7 @@ export class HistoryComponent implements AfterViewInit{
   sanityFinishedObject: {[key: string]: any[]} = {};
   contentPlanObject: {[key: string]: any[]} = {};
   
-  constructor(private location: Location, @Inject(DOCUMENT) document: Document) {
+  constructor(@Inject(DOCUMENT) document: Document) {
     const localStorage = document.defaultView?.localStorage;
     if (localStorage) {
       const dayContentString = localStorage.getItem("FinishedContentAll");
