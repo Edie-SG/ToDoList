@@ -1,3 +1,20 @@
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
 @media (min-width: 768px) {
     :host {
         display: block;
@@ -14,27 +31,77 @@
         font-weight: 300;
     }
 
-    button {
+    div.ripple {
+        margin-top: 5rem;
         position: relative;
         display: flex;
         justify-content: center;
-        font-size: 0.9rem;
-        font-weight: 600;
-        background: none;
-        border: none;
-        margin-top: 5rem;
-    }
+        align-items: center;
 
-    button:is(:hover, :focus)::after {
-        content: attr(data-title);
-        width: max-content;
-        text-transform: none;
-        font-size: 0.9rem;
-        font-weight: 400;
-        padding: 0.1rem 0.3rem;
-        border-radius: 0.3rem;
-        display: block;
-        position: absolute;
-        bottom: calc(100% + 0.5rem);
+        & button {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 10;
+        }
+    
+        & button:is(:hover, :focus)::after {
+            content: attr(data-title);
+            width: max-content;
+            text-transform: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            display: block;
+            position: absolute;
+            bottom: 100%;
+        }
+
+        .click {
+            position: absolute;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 0 5px 3px var(--backColor8);
+            opacity: 0;
+            border-radius: 50%;
+        }
+
+        .hover:nth-child(2) {
+            width: 3rem;
+            height: 3rem;
+            animation: ripple 3s linear infinite;
+        }
+        .hover:nth-child(3) {
+            width: 4rem;
+            height: 4rem;
+            animation: ripple 3s 2.5s linear infinite;
+        }
+        .hover:nth-child(4) {
+            width: 5rem;
+            height: 5rem;
+            animation: ripple 3s 4.5s linear infinite;
+        }
+
+        & button:is(:hover, :focus) ~.click:nth-child(5) {
+            width: 15rem;
+            height: 15rem;
+            animation: ripple 2s linear infinite;
+        }
+        & button:is(:hover, :focus) ~.click:nth-child(6) {
+            width: 18rem;
+            height: 18rem;
+            animation: ripple 2s 1.5s linear infinite;
+        }
+        & button:is(:hover, :focus) ~.click:nth-child(7) {
+            width: 20rem;
+            height: 20rem;
+            animation: ripple 2s 3s linear infinite;
+        }
     }
 }
