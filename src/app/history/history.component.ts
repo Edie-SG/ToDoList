@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, afterNextRender, Inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, afterNextRender, Inject } from '@angular/core';
 import { DOCUMENT, CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-history',
@@ -9,7 +10,7 @@ import { DOCUMENT, CommonModule } from '@angular/common';
   styleUrl: './history.component.css'
 })
 
-export class HistoryComponent implements AfterViewInit{
+export class HistoryComponent {
 
   @ViewChild("cal") cal!: ElementRef;
   @ViewChild("mTopRow") mTopRow!: ElementRef;
@@ -49,19 +50,18 @@ export class HistoryComponent implements AfterViewInit{
     }
 
     afterNextRender(() => {
+      const today: Date = new Date();
+      const year: number = today.getUTCFullYear();
+      this.renderCalendar(1, 12, year);
+
       this.HoverDateCallPanel();
       window.onhashchange = () => {
         this.handleHashChange();
         this.HoverDateCallPanel();
       }
+
       this.findToday();
     });
-  }
-
-  ngAfterViewInit() {
-    const today: Date = new Date();
-    const year: number = today.getUTCFullYear();
-    this.renderCalendar(1, 12, year);
   }
   
   timeDiff () {
