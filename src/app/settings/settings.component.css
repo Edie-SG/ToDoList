@@ -1,0 +1,137 @@
+:host {
+    position: relative;
+}
+
+#setting {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.4rem;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    transform: rotate(0deg);
+    transition: 0.3s ease;
+
+    & svg {
+        height: 100%;
+        stroke: var(--frontColor2);
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1px;
+    }
+}
+
+#setting:hover {
+    background-color: var(--backColor8);
+    box-shadow: 0 0 3px var(--borderColor);
+}
+
+#setting.active {
+    background-color: var(--backColor8);
+    box-shadow: 0 0 3px var(--borderColor);
+    transform: rotate(90deg);
+}
+
+#setting:active {
+    background-color: var(--backColor5);
+}
+
+.dropdownList {
+    position: absolute;
+    right: -0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+
+    .dayNight {
+        width: 7rem;
+        height: 3.5rem;
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        cursor: pointer;
+        background: none;
+        border: none;
+        
+        & svg {
+            position: absolute;
+            height: 6rem;
+            left: 0.5rem;
+            top: 0.5rem;
+            stroke: var(--frontColor2);
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3px;
+            transform: rotate(0deg);
+            transition: 0.5s ease;
+        }
+    }
+
+    .dayNight:hover {
+        background-color: var(--backColor8);
+        border-radius: 3.5rem 3.5rem 0 0;
+        border-bottom: 1px solid var(--borderColor);
+        box-shadow: 0 0 3px var(--borderColor);
+    }
+
+    .dayNight:active {
+        background-color: var(--backColor4);
+    }
+
+    & p {
+        font-size: 0.8rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin-block: 2rem 0;
+    }
+
+    & hr {
+        width: 100%;
+        opacity: 0.5;
+    }
+
+    & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 7rem;
+
+
+        & button {
+            display: block;
+            color: var(--frontColor2);
+            font-size: 0.7rem;
+            font-weight: 400;
+            width: 94%;
+            cursor: pointer;
+            margin: 0.5rem auto;
+            border: 1px solid;
+            line-height: 100%;
+            border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
+            transform: scale(1);
+            background-color: transparent;
+            height: 2.2rem;
+        }
+
+        & button:hover {
+            border-image: radial-gradient(var(--borderColor5) 80%, var(--borderColor5) 85%, var(--borderColor5) 99.8%, var(--borderColor5)) 1;
+            transform: scale(1.05);
+            background-color: var(--backColor4);
+            box-shadow: 0 0 3px var(--borderColor2);
+        }
+
+        & button:active {
+            background-color: var(--backColor5);
+        }
+    }
+}
+
+.dropdownList.active {
+    height: 25rem;
+}

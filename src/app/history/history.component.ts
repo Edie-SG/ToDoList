@@ -238,8 +238,6 @@ export class HistoryComponent {
         }
       }
     }
-
-    console.log(day);
   }
 
   clickedDate() {

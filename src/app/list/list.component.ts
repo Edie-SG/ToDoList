@@ -18,6 +18,7 @@ export class ListComponent implements AfterViewInit {
   @ViewChild("sanity") sanity!: ElementRef;
   @ViewChild("totalValue") totalValue!: ElementRef;
   @ViewChild("lists") lists!: ElementRef;
+  @ViewChild("add") add!: ElementRef;
 
   contentFinishedObject: {[key: string]: any[]} = {};
   sanityFinishedObject: {[key: string]: any[]} = {};
@@ -74,8 +75,6 @@ export class ListComponent implements AfterViewInit {
         this.checkEditPossibility(previousWorkingDay);
       }
     });
-
-    console.log("list constructor run");
   }
 
   ngAfterViewInit() {
@@ -94,6 +93,8 @@ export class ListComponent implements AfterViewInit {
     this.content.nativeElement.focus();
 
     localStorage.setItem("todayList", JSON.stringify(this.itemList));
+    this.add.nativeElement.classList.add("active");
+    setTimeout(() => {this.add.nativeElement.classList.remove("active")}, 800);
   }
 
   pushList() {
@@ -273,22 +274,16 @@ export class ListComponent implements AfterViewInit {
     const keys = Object.keys(this.contentPlanObject);
     const previousWorkingDay = keys[keys.length - 1];
 
-    console.log(newDay);
-    console.log(this.contentPlanObject);
-
     if (this.contentPlanObject[newDay]) {
       this.contentPlanObject[newDay] = [...this.contentPlanObject[newDay], content];
-      console.log("first");
     }
     
     else if (this.contentPlanObject[previousWorkingDay]) {
       this.contentPlanObject[newDay] = [...this.contentPlanObject[previousWorkingDay], content];
-      console.log("second");
     }
 
     else {
       this.contentPlanObject[newDay] = [content];
-      console.log("third");
     }
 
     localStorage.setItem("PlanContentAll", JSON.stringify(this.contentPlanObject));

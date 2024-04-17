@@ -14,7 +14,7 @@ export class TodayComponent implements AfterViewInit{
 
   innerHeightA: number = 0;
   innerHeightS: number = 0;
-  absurdIncrease: number = 0.7;
+  absurdIncrease: number = 1;
 
   @ViewChild("absurdityInner") absurdityInner!: ElementRef;
   @ViewChild("sanityInner") sanityInner!: ElementRef;

@@ -9,13 +9,5 @@ import { CommonModule, DOCUMENT } from '@angular/common';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
-  constructor(@Inject(DOCUMENT) document: Document) {
-    const localStorage = document.defaultView?.localStorage;
 
-    function clearHistory() {
-      if (localStorage) {
-        localStorage.clear();
-      }
-    }
-  }
 }

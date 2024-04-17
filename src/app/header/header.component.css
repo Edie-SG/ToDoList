@@ -1,4 +1,9 @@
 @media (min-width: 768px) {
+    :host {
+        display: inline-block;
+        width: 90%;
+    }
+
     nav {
         text-transform: uppercase;
         font-weight: 600;
