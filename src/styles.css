@@ -25,8 +25,8 @@ button {
     html.bright {
         --frontColor1: rgba(18, 17, 17);
         --frontColor2: rgba(18, 17, 17, 1);
-        --frontColor3: rgb(255, 165, 0);
-        --frontColor4: rgb(255, 165, 0, 0.8);
+        --frontColor3: rgb(224, 152, 173, 1);
+        --frontColor4: rgb(224, 152, 173, 0.5);
         --frontColor5: #e098ad;
         --frontColor6: #739ccc;
         --backColor1: rgb(244, 241, 237, 0.7);

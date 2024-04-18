@@ -76,7 +76,6 @@ label {
         margin-block: 0.5rem;
         scrollbar-width: thin;
         scrollbar-color: var(--borderColor2) transparent;
-        overflow-x: hidden;
 
         & li {
             position: relative;
@@ -169,7 +168,7 @@ label {
 
         & li:is(:hover, :focus) {
             outline: none;
-            box-shadow: 0 0 2px var(--borderColor);
+            box-shadow: 0 0 1.5px var(--borderColor);
 
             >button {
                 display: initial;
@@ -225,8 +224,10 @@ label {
         display: initial;
         width: 2rem;
         height: 2rem;
+        position: relative;
 
         & svg.target {
+            position: absolute;
             stroke: var(--frontColor2);
             height: 100%;
             fill: none;
@@ -241,10 +242,20 @@ label {
         }
     }
 
-    .radioButton:hover {
-        background-color: var(--frontColor4);
-        padding: 0.5rem;
-        border-radius: 50%;
+    .radioButton:hover::after {
+        content: attr(data-title);
+        position: absolute;
+        display: block;
+        width: max-content;
+        text-transform: none;
+        font-size: 0.8rem;
+        padding: 0.1rem 0.3rem;
+        left: calc(100% + 0.5rem);
+        top: 100%;
+        background-color: var(--frontColor5);
+        border: 1px solid;
+        border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
+        z-index: 1;
     }
 
     .radioButton.active {
@@ -253,12 +264,11 @@ label {
         }
 
         & svg.hole {
-            position: relative;
+            position: absolute;
             display: initial;
             fill: var(--frontColor2);
             height: 100%;
-            bottom: 0.1rem;
-            transform: scale(1.2);
+            transform: scale(1.2) translateY(-0.2rem);
         }
     }
     
@@ -414,7 +424,7 @@ label {
                 text-align: center;
                 margin: 0;
                 font-weight: 600;
-                left: 1.3rem;
+                left: 1.4rem;
             }
 
             & p.overload {

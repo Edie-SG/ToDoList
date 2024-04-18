@@ -146,27 +146,46 @@ export class ListComponent implements AfterViewInit {
 
   placeHolderRange() {return "0-" + this.maxInput()};
 
-  randomDistribution(total: number, arrayLength: number): number[] {
-    const randomArray = [];
-    let remainTotal = total * 0.2;
-    let average = (total - remainTotal) / arrayLength;
-    
-    for (let i = 0; i < arrayLength - 1; i++) {
-      let randomValue = Math.round(Math.random() * remainTotal);
+  randomDistribution(arrayLength: number): number[] {
+    const divider: number[] = this.getUniqueNumbers(arrayLength - 1, 1, 100);
+    const randomResults: number[] = [];
 
-      randomArray.push(randomValue);
-      remainTotal -= randomValue;
+    const firstRandom: number = divider[0];
+    randomResults.push(firstRandom);
+
+    for (let i = 0; i < (divider.length - 1); i++) {
+      const random = divider[i + 1] - divider[i];
+      randomResults.push(random);
+    }
+    const lastIndex:number = divider.length - 1;
+    const lastRandom: number = 100 - divider[lastIndex];
+    randomResults.push(lastRandom);
+    return randomResults;
+  }
+
+  getUniqueNumbers(amount: number, min: number, max: number): number[] {
+    if (amount > (max - min + 1) || max < min) {
+      throw new Error("Task number overflow or invalid input parameters");
     }
 
-    randomArray.push(remainTotal);
+    const uniqueNumbers: Set<number> = new Set();
+    const result: number[] = [];
 
-    const randomArrayPlus: number[] = randomArray.map(num => Math.round(num + average));
-    return randomArrayPlus;
+    while (uniqueNumbers.size < amount) {
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      uniqueNumbers.add(randomNumber);
+    }
+
+    uniqueNumbers.forEach(num => result.push(num));
+
+    result.sort((a,b) => a - b);
+
+    return result;
   }
 
   randomButton() {
     const arrayLength = this.itemList.length;
-    const rSanityArray: number[] = this.randomDistribution(100, arrayLength);
+    const rSanityArray: number[] = this.randomDistribution(arrayLength);
 
     for (let i = 0; i < arrayLength; i++) {
       this.itemList[i].sanity = rSanityArray[i];
@@ -337,5 +356,45 @@ export class ListComponent implements AfterViewInit {
       this.contentPlanObject[currentDate].splice(index, 1);
       localStorage.setItem("PlanContentAll", JSON.stringify(this.contentPlanObject));
     }
+  }
+
+  hoverTargetHappen() {
+    const button = event?.target as HTMLElement;
+    button.addEventListener("mousemove", (event) => this.hoverFollowMouse(button, event));
+  }
+
+  hoverFollowMouse(button: any, event: MouseEvent) {
+    const buttonRect = button.getBoundingClientRect();
+    const target = button.querySelector(".radioButton .target");
+    const hole = button.querySelector(".radioButton .hole");
+    const targetRect = target?.getBoundingClientRect();
+    const range = {
+      minX: buttonRect.left - 20,
+      maxX: buttonRect.right + 20,
+      minY: buttonRect.top - 20,
+      maxY: buttonRect.bottom + 20
+    };
+
+    const newX = Math.max(range.minX, Math.min(range.maxX, event.clientX - (targetRect.width / 2)));
+    const newY = Math.max(range.minY, Math.min(range.maxY, event.clientY - (targetRect.height / 2)));
+
+    const newOffsetX = newX - buttonRect.left;
+    const newOffsetY = newY - buttonRect.top;
+
+    target.style.left = `${newOffsetX}px`;
+    target.style.top = `${newOffsetY}px`;
+    hole.style.left = `${newOffsetX}px`;
+    hole.style.top = `${newOffsetY}px`;
+  }
+
+  targetPositionReset() {
+    const button = event?.target as HTMLElement;
+    const target: any = button.querySelector(".radioButton .target");
+    const hole: any = button.querySelector(".radioButton .hole");
+
+    target.style.left = "0px";
+    target.style.top = "0px";
+    hole.style.left = "0px";
+    hole.style.top = "0px";
   }
 }

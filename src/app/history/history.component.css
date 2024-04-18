@@ -11,7 +11,7 @@
 
     #cal {
         position: absolute;
-        inset: 0.5rem 0 0.5rem 0.5rem;
+        inset: 0 0 0.5rem 0.5rem;
         padding-right: 1rem;
         overflow-y: scroll;
         overflow-x: hidden;
@@ -78,32 +78,44 @@
     }
 
     .mo {
-        height: 2rem;
+        height: 2.2rem;
+        line-height: 2.2rem;
         position: sticky;
         top: 0;
         z-index: 1;
     }
 
+    
     .week .mo::after {
         content: "";
         position: absolute;
         inset: -1px auto 0 -2px;
-        width: calc(60dvw - 7px - 0.5rem);
-        max-width: calc(1400px - 7px - 0.5rem);
+        width: 100dvw;
         background: #e3d3bb url("../../assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
-        border-radius: 0.5rem 0.5rem 0 0;
+        z-index: -2;
     }
 
-    .week .mo::before {
+    #p0 .mo::before {
         content: "";
         position: absolute;
-        inset: -1px auto 0 -2px;
-        width: calc(60dvw - 7px - 0.5rem);
+        inset: -1px auto 0 -10rem;
+        width: 100dvw;
         background: url("../../assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
         opacity: 0.7;
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        z-index: 1;
+        z-index: -1;
+    }
+
+    #p0 .mo::after {
+        content: "";
+        position: absolute;
+        inset: -1px auto 0 -10rem;
+        width: 100dvw;
+        background: transparent;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: -2;
     }
 
     .day.sun::before {
@@ -113,10 +125,6 @@
         height: 1px;
         width: calc(60dvw);
         background-color: var(--borderColor2);
-    }
-
-    .dt {
-        border-radius: 0.3rem;
     }
 
     .dt:hover, .dt.active {
@@ -143,17 +151,13 @@
     }
 
     #today {
-        background-color: var(--frontColor4);
-        border-radius: 0.3rem;
-    }
-
-    #today:hover {
-        box-shadow: 0 0 5px var(--frontColor3);
+        background-color: var(--frontColor3);
+        border: 1px solid;
+        border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
     }
 
     #today:active {
-        background-color: var(--frontColor3);
-        box-shadow: 2px 2px 5px var(--frontColor3);
+        background-color: var(--frontColor4);
     }
 
     header {
@@ -162,6 +166,7 @@
         color: var(--frontColor2);
         display: flex;
         align-items: end;
+        z-index: 1;
         
         & h1 {
             display: inline-block;
@@ -181,7 +186,6 @@
                 text-decoration: none;
                 color: var(--frontColor2);
                 padding: 0.2rem 0.5rem;
-                border-radius: 0.2rem;
             }
 
             & a:hover {

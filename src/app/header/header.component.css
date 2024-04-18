@@ -1,3 +1,7 @@
+*:focus {
+    outline: solid 2px var(--frontColor6);
+}
+
 @media (min-width: 768px) {
     :host {
         display: inline-block;
@@ -17,9 +21,42 @@
             padding: 0;
 
             & a {
+                position: relative;
                 text-decoration: none;
                 color: var(--frontColor2);
+                padding: 0.5rem;
+                display: flex;
+                justify-content: center;
             }
+
+            & a::after {
+                content: "";
+                position: absolute;
+                bottom: 0.2rem;
+                width: 70%;
+                height: 0.1rem;
+                background-image: linear-gradient(to right, var(--borderColor) 80%, transparent 80%);
+                background-repeat: repeat-x;
+                background-size: 0.5rem;
+                background-position: 52%;
+                transform: scaleX(0) skewX(-36deg);
+                transition: 0.3s ease;
+            }
+
+            & a:hover::after,
+            & a:focus::after,
+            & a.is-active::after {
+                transform: scaleX(1) skewX(-36deg);
+            }
+
+            & a:focus {
+                outline: none;
+            }
+
+            & a:active::after {
+            }
+
+            
         }
     }
 }

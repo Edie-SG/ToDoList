@@ -28,6 +28,12 @@
     box-shadow: 0 0 3px var(--borderColor);
 }
 
+#setting:focus {
+    outline: none;
+    background-color: var(--backColor8);
+    box-shadow: 0 0 3px var(--borderColor);
+}
+
 #setting.active {
     background-color: var(--backColor8);
     box-shadow: 0 0 3px var(--borderColor);
@@ -74,6 +80,14 @@
     }
 
     .dayNight:hover {
+        background-color: var(--backColor8);
+        border-radius: 3.5rem 3.5rem 0 0;
+        border-bottom: 1px solid var(--borderColor);
+        box-shadow: 0 0 3px var(--borderColor);
+    }
+
+    .dayNight:focus {
+        outline: none;
         background-color: var(--backColor8);
         border-radius: 3.5rem 3.5rem 0 0;
         border-bottom: 1px solid var(--borderColor);
