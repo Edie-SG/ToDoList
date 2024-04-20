@@ -1,4 +1,4 @@
-<button #setting id = "setting" type = "button" aria-label = "settings" data-title = "Settings" (click) = "settingButton()">
+<button #setting id = "setting" type = "button" aria-label = "settings" data-title = "Settings" [ngClass] = "{ 'active': isDropdownOpen }" (click) = "settingButton()">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
       <g>
         <g>
@@ -58,7 +58,7 @@
       </g>
     </svg>
 </button>
-<div class = "dropdownList" #dropdownList>
+<div class = "dropdownList" [ngClass] = "{ 'active': isDropdownOpen }" #dropdownList>
   <P>Theme Switch</P>
   <hr>
   <div>
@@ -97,3 +97,4 @@
     <li><button type = "button" (click) = "cleanAll()">Clean all</button></li>
   </ul>
 </div>
+<div id = "dropOpenBackground" [ngClass] = "{ 'active': isDropdownOpen }" (click) = "settingButton()"></div>

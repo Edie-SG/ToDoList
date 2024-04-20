@@ -6,6 +6,8 @@
 
 button {
     font-family: "Titillium Web", sans-serif;
+    color: var(--frontColor2);
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -25,23 +27,23 @@ button {
     html.bright {
         --frontColor1: rgba(18, 17, 17);
         --frontColor2: rgba(18, 17, 17, 1);
-        --frontColor3: rgb(224, 152, 173, 1);
-        --frontColor4: rgb(224, 152, 173, 0.5);
-        --frontColor5: #e098ad;
+        --frontColor3: rgba(224, 152, 173, 1);
+        --frontColor4: rgba(224, 152, 173, 0.5);
+        --frontColor5: rgba(244, 241, 237);
         --frontColor6: #739ccc;
-        --backColor1: rgb(244, 241, 237, 0.7);
-        --backColor2: rgb(244, 241, 237);
-        --backColor3: rgb(18, 17, 17, 0.1);
-        --backColor4: rgb(244, 241, 237, 0.3);
-        --backColor5: rgb(244, 241, 237, 0.1);
-        --backColor6: rgb(18, 17, 17, 0.15);
-        --backColor7: rgb(18, 17, 17, 0.08);
-        --backColor8: rgb(244, 241, 237, 0.5);
-        --borderColor: rgb(18, 17, 17, 0.5);
-        --borderColor2: rgb(18, 17, 17, 0.2);
-        --borderColor3: rgb(18, 17, 17, 0.1);
-        --borderColor4: rgb(18, 17, 17, 0.3);
-        --borderColor5: rgb(18, 17, 17, 1);
+        --backColor1: rgba(244, 241, 237, 0.7);
+        --backColor2: rgba(244, 241, 237, 0.5);
+        --backColor3: rgba(18, 17, 17, 0.1);
+        --backColor4: rgba(244, 241, 237, 0.3);
+        --backColor5: rgba(244, 241, 237, 0.1);
+        --backColor6: rgba(18, 17, 17, 0.15);
+        --backColor7: rgba(18, 17, 17, 0.7);
+        --backColor8: rgba(244, 241, 237, 0.5);
+        --borderColor: rgba(18, 17, 17, 0.5);
+        --borderColor2: rgba(18, 17, 17, 0.2);
+        --borderColor3: rgba(18, 17, 17, 0.1);
+        --borderColor4: rgba(18, 17, 17, 0.3);
+        --borderColor5: rgba(18, 17, 17, 1);
         
 
         background: #e3d3bb url("assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
@@ -59,26 +61,26 @@ button {
     html.dark {
         --frontColor1: rgba(244, 241, 237);
         --frontColor2: rgba(244, 241, 237);
-        --frontColor3: rgb(255, 165, 0);
-        --frontColor4: rgb(255, 165, 0, 0.8);
-        --frontColor5: #e098ad;
-        --frontColor6: #739ccc;
-        --backColor1: rgb(244, 241, 237, 0.7);
-        --backColor2: rgb(244, 241, 237);
-        --backColor3: rgb(18, 17, 17, 0.1);
-        --backColor4: rgb(244, 241, 237, 0.3);
-        --backColor5: rgb(244, 241, 237, 0.1);
-        --backColor6: rgb(18, 17, 17, 0.15);
-        --backColor7: rgb(18, 17, 17, 0.08);
-        --backColor8: rgb(244, 241, 237, 0.5);
-        --borderColor: rgb(18, 17, 17, 0.5);
-        --borderColor2: rgb(18, 17, 17, 0.2);
-        --borderColor3: rgb(18, 17, 17, 0.1);
-        --borderColor4: rgb(18, 17, 17, 0.3);
-        --borderColor5: rgb(18, 17, 17, 1);
+        --frontColor3: #4A2E2A;
+        --frontColor4: rgba(74, 46, 42, 0.5);
+        --frontColor5: rgb(18, 17, 17);
+        --frontColor6: #405029;
+        --backColor1: rgba(244, 241, 237, 0.3);
+        --backColor2: rgba(244, 241, 237, 0.5);
+        --backColor3: rgba(244, 241, 237, 0.1);
+        --backColor4: rgba(244, 241, 237, 0.2);
+        --backColor5: rgba(244, 241, 237, 0.05);
+        --backColor6: rgba(244, 241, 237, 0.15);
+        --backColor7: rgba(244, 241, 237, 0.7);
+        --backColor8: rgba(244, 241, 237, 0.2);
+        --borderColor: rgba(244, 241, 237, 0.5);
+        --borderColor2: rgba(244, 241, 237, 0.2);
+        --borderColor3: rgba(244, 241, 237, 0.1);
+        --borderColor4: rgba(244, 241, 237, 0.3);
+        --borderColor5: rgba(244, 241, 237, 0.8);
         
 
-        background: #e3d3bb url("assets/nathan-watson-a4Goc6z9eQs-unsplash.jpg") center/cover no-repeat fixed;
+        background: var(--frontColor5) url("assets/nathan-watson-a4Goc6z9eQs-unsplash.jpg") center/cover no-repeat fixed;
         background-position-y: top;
     }
 
@@ -86,9 +88,9 @@ button {
         content: "";
         position: absolute;
         inset: 0;
-        background: url("assets/dan-cristian-padure-3bb9RUp86M0-unsplash_mv2.jpg") center/cover no-repeat fixed;
+        background: var(--frontColor5);
         z-index: -2;
-        opacity: 0.7;
+        opacity: 0.8;
     }
 
     body {
@@ -102,6 +104,15 @@ button {
     
     body.bright {
         background: #e3d3bb url("assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
+
+        .week .mo::after {
+            background: #e3d3bb url("assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
+        }
+
+        .week .mo::before {
+            background: url("assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
+            opacity: 0.7;
+        }
     }
 
     body.bright::after {
@@ -122,16 +133,26 @@ button {
     }
 
     body.dark {
-        background: #e3d3bb url("assets/nathan-watson-a4Goc6z9eQs-unsplash.jpg") center/cover no-repeat fixed;
+        background: var(--frontColor5) url("assets/nathan-watson-a4Goc6z9eQs-unsplash.jpg") center/cover no-repeat fixed;
         background-position-y: top;
+
+        .week .mo::after {
+            background: var(--frontColor5) url("assets/nathan-watson-a4Goc6z9eQs-unsplash.jpg") center/cover no-repeat fixed;
+            background-position-y: top;
+        }
+
+        .week .mo::before {
+            background: var(--frontColor5);
+            opacity: 0.5;
+        }
     }
 
     body.dark::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: url("assets/dan-cristian-padure-3bb9RUp86M0-unsplash_mv2.jpg") center/cover no-repeat fixed;
-        opacity: 0.4;
+        background: var(--frontColor5);
+        opacity: 0.5;
     }
 
     body.dark::before {

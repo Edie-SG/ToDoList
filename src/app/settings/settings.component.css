@@ -95,7 +95,7 @@
     }
 
     .dayNight:active {
-        background-color: var(--backColor4);
+        background-color: var(--backColor5);
     }
 
     & p {
@@ -108,6 +108,7 @@
     & hr {
         width: 100%;
         opacity: 0.5;
+        color: var(--borderColor5);
     }
 
     & ul {
@@ -147,5 +148,17 @@
 }
 
 .dropdownList.active {
-    height: 25rem;
+    height: 22rem;
+}
+
+#dropOpenBackground {
+    background-color: transparent;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: none;
+}
+
+#dropOpenBackground.active {
+    display: block;
 }

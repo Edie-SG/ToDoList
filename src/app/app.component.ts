@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { Location } from "@angular/common"
+import { Location, CommonModule } from "@angular/common"
 import { HeaderComponent } from './header/header.component';
 import { SettingsComponent } from './settings/settings.component';
 import { filter } from "rxjs/operators"
@@ -8,7 +8,7 @@ import { filter } from "rxjs/operators"
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, HeaderComponent, SettingsComponent],
+  imports: [CommonModule, RouterLink, RouterOutlet, HeaderComponent, SettingsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

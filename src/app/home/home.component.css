@@ -67,7 +67,7 @@
             position: absolute;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 0 5px 3px var(--backColor8);
+            box-shadow: 0 0 5px 3px var(--backColor2);
             opacity: 0;
             border-radius: 50%;
         }

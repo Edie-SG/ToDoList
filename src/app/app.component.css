@@ -29,6 +29,7 @@
         margin: 2.5rem 2rem;
         display: flex;
         align-items: center;
+        z-index: 10;
     }
 
     router-outlet {

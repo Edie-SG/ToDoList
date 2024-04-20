@@ -1,10 +1,10 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, ViewChild, Output, EventEmitter, AfterViewInit, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, ElementRef, ViewChild, Output, EventEmitter, AfterViewInit, Inject, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
@@ -13,8 +13,10 @@ export class SettingsComponent implements AfterViewInit {
   @Output() dayNightMode = new EventEmitter<boolean>();
   @ViewChild("dropdownList") dropdownList?: ElementRef;
   @ViewChild("setting") setting?: ElementRef;
+  
   isDayMode: boolean = true;
   rotation: number = 0;
+  isDropdownOpen: boolean = false;
 
   constructor(@Inject(DOCUMENT) document: Document) {
     let localStorage = document.defaultView?.localStorage;
@@ -57,8 +59,7 @@ export class SettingsComponent implements AfterViewInit {
   }
 
   settingButton() {
-    this.setting?.nativeElement.classList.toggle("active");
-    this.dropdownList?.nativeElement.classList.toggle("active");
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   cleanInPlan() {

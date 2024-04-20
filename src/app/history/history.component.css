@@ -49,13 +49,25 @@
                 border-collapse: collapse;
 
                 & td.mc:hover {
-                    background-color: var(--backColor7);
+                    background-color: var(--borderColor3);
                     z-index: -1;
                 }
 
                 & td.mc:hover .mo {
-                    background-color: var(--backColor7);
-                    box-shadow: 0 -1px 0 1px var(--backColor7);
+                    background-color: var(--borderColor3);
+                    box-shadow: 0 -1px 0 1px var(--borderColor3);
+                }
+
+                & td.mc:hover #p0 .mo {
+                    background-color: transparent;
+                }
+
+                & td.mc:hover #p0 .mo::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-color: var(--borderColor3);
+                    box-shadow: 0 -1px 0 1px var(--borderColor3);
                 }
             }
         }
@@ -91,19 +103,14 @@
         position: absolute;
         inset: -1px auto 0 -2px;
         width: 100dvw;
-        background: #e3d3bb url("../../assets/pawel-czerwinski-rsB6JZg6rVs-unsplash.jpg") center/cover no-repeat fixed;
         z-index: -2;
     }
 
-    #p0 .mo::before {
+    .week .mo::before {
         content: "";
         position: absolute;
         inset: -1px auto 0 -10rem;
         width: 100dvw;
-        background: url("../../assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
-        opacity: 0.7;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
         z-index: -1;
     }
 
@@ -138,12 +145,12 @@
         width: 120dvw;
         height: 100%;
         left: -60dvw;
-        background-color: var(--backColor7);
+        background-color: var(--borderColor3);
         z-index: -1;
     }
 
     .dt.active {
-        background-color: var(--backColor3);
+        background-color: var(--borderColor2);
     }
 
     .dt:active {
@@ -239,7 +246,6 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: url("../../assets/dan-cristian-padure-3bb9RUp86M0-unsplash_m.jpg") center/cover no-repeat fixed;
         opacity: 0.2;
         z-index: -1;
     }

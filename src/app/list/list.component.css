@@ -252,7 +252,7 @@ label {
         padding: 0.1rem 0.3rem;
         left: calc(100% + 0.5rem);
         top: 100%;
-        background-color: var(--frontColor5);
+        background-color: var(--frontColor3);
         border: 1px solid;
         border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
         z-index: 1;
@@ -296,6 +296,7 @@ label {
         }
 
         & input {
+            color: var(--frontColor2);
             font-family: "Titillium Web", sans-serif;
             background-color: var(--backColor8);
             padding-left: 0.5rem;
@@ -309,6 +310,10 @@ label {
             border-image: radial-gradient(var(--borderColor5) 80%, var(--borderColor5) 85%, var(--borderColor5) 99.8%, var(--borderColor5)) 1;
             background-color: var(--backColor4);
             box-shadow: 0 0 3px var(--borderColor2);
+        }
+
+        & input::placeholder {
+            color: var(--backColor7);
         }
 
         #sanity::-webkit-inner-spin-button, #sanity::-webkit-outer-spin-button {
@@ -380,7 +385,7 @@ label {
         }
 
         #add:active {
-            background-color: var(--backColor4);
+            background-color: var(--backColor5);
         }
 
         #add.active {
@@ -487,7 +492,7 @@ label {
         }
 
         #random:active {
-            background-color: var(--backColor4);
+            background-color: var(--backColor5);
         }
 
         #random:hover::after {
