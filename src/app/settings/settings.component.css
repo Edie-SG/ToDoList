@@ -108,7 +108,9 @@
     & hr {
         width: 100%;
         opacity: 0.5;
-        color: var(--borderColor5);
+        height: 1px;
+        background-color: var(--borderColor5);
+        border: none;
     }
 
     & ul {

@@ -4,6 +4,18 @@
     font-family: "Titillium Web", sans-serif;
 }
 
+:root::before {
+    content: "Currently this website is only work on large screen. Development is ongoing.";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: black;
+}
+
+body {
+    display: none;
+}
+
 button {
     font-family: "Titillium Web", sans-serif;
     color: var(--frontColor2);
@@ -25,7 +37,7 @@ button {
     }
 
     html.bright {
-        --frontColor1: rgba(18, 17, 17);
+        --frontColor1: rgba(18, 17, 17, 1);
         --frontColor2: rgba(18, 17, 17, 1);
         --frontColor3: rgba(224, 152, 173, 1);
         --frontColor4: rgba(224, 152, 173, 0.5);
@@ -94,6 +106,7 @@ button {
     }
 
     body {
+        display: initial;
         position: absolute;
         margin: 0;
         padding: 0;
