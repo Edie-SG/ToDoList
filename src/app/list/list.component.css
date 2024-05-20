@@ -63,13 +63,14 @@ label {
     outline: solid 2px var(--frontColor6);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1400px) {
     ul {
         position: absolute;
         display: block;
         inset: 0 0 4.5rem 0;
         box-sizing: border-box;
         overflow-y: auto;
+        overflow-x: clip;
         list-style: none;
         padding-left: 0;
         padding-bottom: 0.1rem;
@@ -110,6 +111,8 @@ label {
                 background-color: transparent;
                 border: 1px solid transparent;
                 padding: 0.5rem;
+                align-items: center;
+                justify-content: center;
 
                 & svg {
                     stroke: var(--frontColor2);
@@ -126,7 +129,7 @@ label {
                 background-color: var(--backColor3);
 
                 & button {
-                    display: initial;
+                    display: flex;
                 }
 
                 & button:hover {
@@ -171,7 +174,7 @@ label {
             box-shadow: 0 0 1.5px var(--borderColor);
 
             >button {
-                display: initial;
+                display: flex;
             }
 
             #delete:hover {
@@ -296,7 +299,7 @@ label {
         }
 
         & input {
-            color: var(--frontColor2);
+            color: var(--frontColor1);
             font-family: "Titillium Web", sans-serif;
             background-color: var(--backColor8);
             padding-left: 0.5rem;
@@ -350,7 +353,7 @@ label {
                 fill: none;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                stroke-width: 2px;
+                stroke-width: 1.8px;
             }
 
             #cartridge {
@@ -397,11 +400,13 @@ label {
     
     .top {
         position: absolute;
+        height: 2.5rem;
         top: -3.5rem;
         right: 0;
         left: calc(82%);
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         .sanityIcon {
             position: relative;
@@ -420,7 +425,7 @@ label {
                 fill: none;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                stroke-width: 5px;
+                stroke-width: 4px;
             }
 
             & p {
@@ -460,7 +465,6 @@ label {
 
         #random {
             height: 3rem;
-            margin-left: 3rem;
             background-color: transparent;
             padding: 0.5rem;
             border: 1px solid transparent;
@@ -473,7 +477,7 @@ label {
                 fill: none;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                stroke-width: 4px;
+                stroke-width: 3.5px;
                 pointer-events: none;
             }
         }

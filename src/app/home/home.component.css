@@ -15,7 +15,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1400px) {
     :host {
         display: block;
         width: 100%;

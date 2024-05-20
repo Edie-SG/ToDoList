@@ -20,6 +20,7 @@
         stroke-linecap: round;
         stroke-linejoin: round;
         stroke-width: 1px;
+        opacity: 0.9;
     }
 }
 
@@ -73,7 +74,7 @@
             fill: none;
             stroke-linecap: round;
             stroke-linejoin: round;
-            stroke-width: 3px;
+            stroke-width: 2.5px;
             transform: rotate(0deg);
             transition: 0.5s ease;
         }
@@ -122,7 +123,7 @@
 
         & button {
             display: block;
-            color: var(--frontColor2);
+            color: var(--frontColor1);
             font-size: 0.7rem;
             font-weight: 400;
             width: 94%;

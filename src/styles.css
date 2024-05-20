@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    font-size: clamp(16px, 2dvmax, 32px);
+    font-size: clamp(16px, 2dvw, 32px);
     font-family: "Titillium Web", sans-serif;
 }
 
@@ -18,13 +18,13 @@ body {
 
 button {
     font-family: "Titillium Web", sans-serif;
-    color: var(--frontColor2);
+    color: var(--frontColor1);
     cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1400px) {
     :root {
-        font-size: clamp(12px, 1.5dvmax, 20px);
+        font-size: clamp(12px, 1.5dvw, 20px);
     }
 
     :root::before {
@@ -35,14 +35,13 @@ button {
         position: fixed;
         width: 100dvw;
         height: 100dvh;
-        overflow: hidden;
         background-color: var(--backColor1);
         color: var(--frontColor1);
     }
 
     html.bright {
         --frontColor1: rgba(18, 17, 17, 1);
-        --frontColor2: rgba(18, 17, 17, 1);
+        --frontColor2: rgba(18, 17, 17, 0.85);
         --frontColor3: rgba(224, 152, 173, 1);
         --frontColor4: rgba(224, 152, 173, 0.5);
         --frontColor5: rgba(244, 241, 237);
@@ -76,7 +75,7 @@ button {
 
     html.dark {
         --frontColor1: rgba(244, 241, 237);
-        --frontColor2: rgba(244, 241, 237);
+        --frontColor2: rgba(244, 241, 237, 0.8);
         --frontColor3: #4A2E2A;
         --frontColor4: rgba(74, 46, 42, 0.5);
         --frontColor5: rgb(18, 17, 17);

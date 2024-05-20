@@ -2,7 +2,7 @@
     outline: solid 2px var(--frontColor6);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1400px) {
     :host {
         display: inline-block;
         width: 90%;
