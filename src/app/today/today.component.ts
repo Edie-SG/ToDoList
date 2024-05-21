@@ -16,6 +16,7 @@ export class TodayComponent implements AfterViewInit{
   innerHeightS: number = 0;
   absurdIncrease: number = 1;
 
+
   @ViewChild("absurdityInner") absurdityInner!: ElementRef;
   @ViewChild("sanityInner") sanityInner!: ElementRef;
   @ViewChild("timeStart") timeStart!: ElementRef;
@@ -43,6 +44,11 @@ export class TodayComponent implements AfterViewInit{
   }
 
   ngAfterViewInit() {
+  }
+
+  bottomBarToggle() {
+    const eventTarget = event?.target as HTMLElement;
+    eventTarget.classList.toggle("active");
   }
 
   localStorageCheckData() {
