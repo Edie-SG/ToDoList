@@ -102,8 +102,9 @@
             padding: 0.5rem;
             margin: 2rem;
             display: flex;
-            justify-content: center;
-            align-items: end;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
             border: 1px solid transparent;
             z-index: -1;
             transition: height 0.3s ease;
@@ -178,7 +179,7 @@
         }
 
         .outContainerL.active {
-            height: 22rem;
+            height: 32rem;
         }
 
         .outContainerR {
@@ -213,6 +214,54 @@
                 height: 8rem;
                 fill: var(--frontColor6);
             }
+        }
+
+        & button .functions {
+            position: absolute;
+            height: 5rem;
+            width: 5rem;
+            opacity: 0;
+            transition: none;
+            padding: 0.5rem;
+
+            & svg {
+                stroke: var(--frontColor2);
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.2px;
+            }
+        }
+
+        & button.active .functions {
+            opacity: 1;
+            transition: opacity 0.8s ease;
+            pointer-events: all;
+        }
+
+        & button .coffee {
+            top: 1rem;
+            & svg {
+                width: 4.5rem;
+            }
+        }
+
+        & button .sweets {
+            top: 8rem;
+            & svg {
+                width: 5rem;
+            }
+        }
+
+        & button .pets {
+            top: 15rem;
+            & svg {
+                width: 5rem;
+            }
+        }
+
+        & button.active .functions:hover {
+            background-color: var(--backColor4);
         }
     }
 }
