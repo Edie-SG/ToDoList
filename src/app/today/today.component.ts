@@ -15,6 +15,7 @@ export class TodayComponent implements AfterViewInit{
   innerHeightA: number = 0;
   innerHeightS: number = 0;
   absurdIncrease: number = 1;
+  absurdTimeStart: any;
 
 
   @ViewChild("absurdityInner") absurdityInner!: ElementRef;
@@ -154,12 +155,16 @@ export class TodayComponent implements AfterViewInit{
   }
 
   absurdTimeFunc() {
-    const timeStart = setInterval(() => {
-      this.calculateAbsurd();
+    if (!this.absurdTimeStart) {
+      this.absurdTimeStart = setInterval(() => {
+        this.calculateAbsurd();
+      }, 1000*1*1);
+  
       if (this.innerHeightA >= 100) {
-        clearInterval(timeStart);
+        clearInterval(this.absurdTimeStart);
+        this.absurdTimeStart = null;
       }
-    }, 1000*60*1);
+    }
   }
 
   calculateAbsurd() {
@@ -169,6 +174,10 @@ export class TodayComponent implements AfterViewInit{
       this.innerHeightA = 100
     }
     
+    this.updateAbsurd();
+  }
+
+  updateAbsurd() {
     this.absurdityInner.nativeElement.style.height = this.innerHeightA + "%";
     localStorage.setItem("absurd", JSON.stringify(this.innerHeightA));
     console.log(this.innerHeightA);
@@ -183,5 +192,41 @@ export class TodayComponent implements AfterViewInit{
     } else {
       this.sanityInner.nativeElement.style.height = 100 + "%";
     }
+  }
+
+  absurdityCoffee() {
+    this.innerHeightA = this.innerHeightA - 30;
+
+    if (this.innerHeightA < 0) {
+      this.innerHeightA = 0;
+    }
+
+    this.updateAbsurd();
+    clearInterval(this.absurdTimeStart);
+    this.absurdTimeStart = null;
+  }
+
+  absurditySweets() {
+    this.innerHeightA = this.innerHeightA - 50;
+
+    if (this.innerHeightA < 0) {
+      this.innerHeightA = 0;
+    }
+
+    this.updateAbsurd();
+    clearInterval(this.absurdTimeStart);
+    this.absurdTimeStart = null;
+  }
+
+  absurdityPets() {
+    this.innerHeightA = this.innerHeightA - 70;
+
+    if (this.innerHeightA < 0) {
+      this.innerHeightA = 0;
+    }
+
+    this.updateAbsurd();
+    clearInterval(this.absurdTimeStart);
+    this.absurdTimeStart = null;
   }
 }

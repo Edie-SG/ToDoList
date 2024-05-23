@@ -229,7 +229,6 @@
                 fill: none;
                 stroke-linecap: round;
                 stroke-linejoin: round;
-                stroke-width: 1.2px;
             }
         }
 
@@ -243,6 +242,7 @@
             top: 1rem;
             & svg {
                 width: 4.5rem;
+                stroke-width: 1.2px;
             }
         }
 
@@ -250,6 +250,7 @@
             top: 8rem;
             & svg {
                 width: 5rem;
+                stroke-width: 1.1px;
             }
         }
 
@@ -257,6 +258,7 @@
             top: 15rem;
             & svg {
                 width: 5rem;
+                stroke-width: 1px;
             }
         }
 
