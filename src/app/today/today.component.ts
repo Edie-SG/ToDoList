@@ -49,7 +49,19 @@ export class TodayComponent implements AfterViewInit{
 
   bottomBarToggle() {
     const eventTarget = event?.target as HTMLElement;
+    const functionButtons = eventTarget.querySelectorAll(".functions") as NodeListOf<HTMLElement>;
     eventTarget.classList.toggle("active");
+    eventTarget.addEventListener("transitionrun", () => {
+      functionButtons.forEach(node => {
+        node.style.pointerEvents = "none"; 
+      });
+    });
+
+    eventTarget.addEventListener("transitionend", () => {
+      functionButtons.forEach(node => {
+        node.style.pointerEvents = ""; 
+      });
+    });
   }
 
   localStorageCheckData() {

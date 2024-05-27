@@ -238,6 +238,26 @@
             pointer-events: all;
         }
 
+        & button.active .functions::after {
+            content: attr(data-title);
+            position: absolute;
+            display: none;
+            width: max-content;
+            text-transform: none;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.3rem;
+            left: calc(100% + 0.5rem);
+            top: 50%;
+            background-color: var(--frontColor3);
+            border: 1px solid;
+            border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
+            z-index: 1;
+        }
+
+        & button.active .functions:hover::after {
+            display: block;
+        }
+
         & button .coffee {
             top: 1rem;
             & svg {
