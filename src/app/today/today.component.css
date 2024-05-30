@@ -18,6 +18,7 @@
         font-size: 1rem;
         font-weight: 300;
         text-transform: uppercase;
+        transition: 0.3s ease;
     }
 
     .dayTime {
@@ -77,6 +78,9 @@
         position: absolute;
         inset: 0;
         height: 100%;
+        pointer-events: initial;
+        transition: 0.3s ease;
+        border-top: 1px solid var(--borderColor4);
 
         & app-list {
             position: absolute;
@@ -285,5 +289,47 @@
         & button.active .functions:hover {
             background-color: var(--backColor4);
         }
+    }
+
+    section.paused {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        inset: 18% 18% 14% 18%;
+        border: 1px solid;
+        border-image: radial-gradient(transparent 80%, var(--borderColor) 85%, var(--borderColor) 99.8%, transparent) 1;
+        transform: translateY(-150%);
+        transition: 0.5s ease;
+
+        & app-paused {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    header.active {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    section.list.active {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    section.paused.active {
+        transform: translateY(0);
+    }
+
+    section.paused.active::after {
+        content: "";
+        position: absolute;
+        inset: -50%;
+        background-color: var(--frontColor7);
     }
 }

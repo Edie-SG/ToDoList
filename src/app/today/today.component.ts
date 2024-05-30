@@ -1,11 +1,12 @@
 import { Component, Inject, AfterViewInit, ElementRef, ViewChild, afterNextRender } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { ListComponent } from '../list/list.component';
+import { PausedComponent } from '../paused/paused.component';
 
 @Component({
   selector: 'app-today',
   standalone: true,
-  imports: [CommonModule, ListComponent],
+  imports: [CommonModule, ListComponent, PausedComponent],
   templateUrl: "./today.component.html",
   styleUrl: './today.component.css'
 })
@@ -25,7 +26,7 @@ export class TodayComponent implements AfterViewInit{
   
    
 
-  constructor(@Inject(DOCUMENT) document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     let localStorage = document.defaultView?.localStorage;
 
     if (localStorage) {
@@ -33,6 +34,7 @@ export class TodayComponent implements AfterViewInit{
     }
 
     afterNextRender(() => {
+      this.localStorageClassNameData();
       this.localStorageCheckDayTime();
       this.emptyEveryday();
       this.absurdityInner.nativeElement.style.height = this.innerHeightA + "%";
@@ -70,12 +72,35 @@ export class TodayComponent implements AfterViewInit{
     const storedAbsurdValue = storedAbsurdString ? JSON.parse(storedAbsurdString) : 0;
     const storedSanityValue = storedSanityString ? JSON.parse(storedSanityString) : 0;
 
+
     if (storedAbsurdValue) {
       this.innerHeightA = storedAbsurdValue;
     }
 
     if (storedSanityValue) {
       this.innerHeightS = storedSanityValue;
+    }
+  }
+
+  localStorageClassNameData() {
+    const headerClass = localStorage.getItem("headerClass");
+    const listClass = localStorage.getItem("listClass");
+    const pausedClass = localStorage.getItem("pausedClass");
+
+    const header = this.document.querySelector("app-today header") as HTMLElement;
+    const list = this.document.querySelector(".list") as HTMLElement;
+    const paused = this.document.querySelector(".paused") as HTMLElement;
+
+    if (headerClass) {
+      header.className = headerClass;
+    }
+
+    if (listClass) {
+      list.className = listClass;
+    }
+
+    if (pausedClass) {
+      paused.className = pausedClass;
     }
   }
 
@@ -216,6 +241,8 @@ export class TodayComponent implements AfterViewInit{
     this.updateAbsurd();
     clearInterval(this.absurdTimeStart);
     this.absurdTimeStart = null;
+    
+    this.paused();
   }
 
   absurditySweets() {
@@ -228,6 +255,8 @@ export class TodayComponent implements AfterViewInit{
     this.updateAbsurd();
     clearInterval(this.absurdTimeStart);
     this.absurdTimeStart = null;
+
+    this.paused();
   }
 
   absurdityPets() {
@@ -240,5 +269,24 @@ export class TodayComponent implements AfterViewInit{
     this.updateAbsurd();
     clearInterval(this.absurdTimeStart);
     this.absurdTimeStart = null;
+
+    this.paused();
+  }
+
+  paused() {
+    const header = this.document.querySelector("app-today header") as HTMLElement;
+    const list = this.document.querySelector(".list") as HTMLElement;
+    const paused = this.document.querySelector(".paused") as HTMLElement;
+    const outcontainerL = this.document.querySelector(".outContainerL") as HTMLElement;
+    const outcontainerR = this.document.querySelector(".outContainerR") as HTMLElement;
+    header.classList.add("active");
+    list.classList.add("active");
+    paused.classList.add("active");
+    outcontainerL.classList.remove("active");
+    outcontainerR.classList.remove("active");
+
+    localStorage.setItem("headerClass", header.className);
+    localStorage.setItem("listClass", list.className);
+    localStorage.setItem("pausedClass", paused.className);
   }
 }

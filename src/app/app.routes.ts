@@ -4,7 +4,6 @@ import { TodayComponent } from './today/today.component';
 import { HistoryComponent } from './history/history.component';
 import { GuideComponent } from './guide/guide.component';
 import { AboutComponent } from './about/about.component';
-import { PausedComponent } from './paused/paused.component';
 
 export const routes: Routes = [
     {
@@ -34,10 +33,5 @@ export const routes: Routes = [
     {
         path: "about",
         component: AboutComponent,
-    },
-
-    {
-        path: "paused",
-        component: PausedComponent,
     }
 ];

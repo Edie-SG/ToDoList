@@ -46,6 +46,7 @@ button {
         --frontColor4: rgba(224, 152, 173, 0.5);
         --frontColor5: rgba(244, 241, 237);
         --frontColor6: #739ccc;
+        --frontColor7: rgba(244, 241, 237, 0.4);
         --backColor1: rgba(244, 241, 237, 0.7);
         --backColor2: rgba(244, 241, 237, 0.5);
         --backColor3: rgba(18, 17, 17, 0.1);
@@ -80,6 +81,7 @@ button {
         --frontColor4: rgba(74, 46, 42, 0.5);
         --frontColor5: rgb(18, 17, 17);
         --frontColor6: #405029;
+        --frontColor7: rgba(18, 17, 17, 0.4);
         --backColor1: rgba(244, 241, 237, 0.3);
         --backColor2: rgba(244, 241, 237, 0.5);
         --backColor3: rgba(244, 241, 237, 0.1);
@@ -202,6 +204,5 @@ button {
     app-root {
         position: absolute;
         inset: 4.5rem 2rem 1rem 2rem;
-        border-top: 1px solid var(--borderColor);
     }
 }
